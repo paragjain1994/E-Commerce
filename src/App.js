@@ -1,10 +1,12 @@
 import React from "react";
-import ProductsItem from "./components/ProductsItem";
+import Header from "./components/Header";
+import Title from "./components/Title";
+import Card from "./Cards/Card";
 
 const productsArr = [
   {
     id: "m1",
-   
+
     title: "Album 1",
 
     price: 100,
@@ -14,7 +16,7 @@ const productsArr = [
 
   {
     id: "m2",
-    
+
     title: "Album 2",
 
     price: 50,
@@ -24,7 +26,7 @@ const productsArr = [
 
   {
     id: "m3",
-    
+
     title: "Album 3",
 
     price: 70,
@@ -34,7 +36,7 @@ const productsArr = [
 
   {
     id: "m4",
-   
+
     title: "Album 4",
 
     price: 100,
@@ -43,28 +45,24 @@ const productsArr = [
   },
 ];
 
-
 function App() {
   const productlist = productsArr.map((prod) => (
-    <ProductsItem
+    <Card
       key={prod.id}
       id={prod.id}
       title={prod.title}
       imageUrl={prod.imageUrl}
       price={prod.price}
-    ></ProductsItem>
+    ></Card>
   ));
 
-  return(
+  return (
     <div>
-    <section>
-
-        <ul>{productlist}</ul>
- 
-    </section>
-  </div>
-  )
- 
+      <Header></Header>
+      <Title></Title>
+      <ul>{productlist}</ul>
+    </div>
+  );
 }
 
 export default App;
