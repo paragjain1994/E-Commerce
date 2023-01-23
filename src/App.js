@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./components/Header";
 import Title from "./components/Title";
 import Card from "./Cards/Card";
+import classes from "./Cards/Card.module.css";
 
 const productsArr = [
   {
@@ -60,7 +61,7 @@ function App() {
     <div>
       <Header></Header>
       <Title></Title>
-      <ul>{productlist}</ul>
+      <ul className={classes.container}>{productlist}</ul>
     </div>
   );
 }
