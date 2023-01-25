@@ -1,10 +1,11 @@
-import React from "react";
+import React , {Fragment} from "react";
 import Header from "./components/Header";
 import Title from "./components/Title";
 import Card from "./Cards/Card";
 import classes from "./Cards/Card.module.css";
 import { Button } from "react-bootstrap";
 import Footer from "./components/Footer";
+import Cart from "./components/Cart";
 
 const productsArr = [
   {
@@ -60,7 +61,8 @@ function App() {
   ));
 
   return (
-    <div>
+    <Fragment>
+      <Cart></Cart>
       <Header/>
       <Title/>
       <ul className={classes.container}>{productlist}</ul>
@@ -75,7 +77,7 @@ function App() {
         <Button variant="outline-secondary">See the Cart</Button>
       </div>
       <Footer />
-    </div>
+    </Fragment>
   );
 }
 
