@@ -1,4 +1,4 @@
-import React , {Fragment} from "react";
+import React, { Fragment, useState } from "react";
 import Header from "./components/Header";
 import Title from "./components/Title";
 import Card from "./Cards/Card";
@@ -50,6 +50,16 @@ const productsArr = [
 ];
 
 function App() {
+  const [cartIsShown, setCartIsShown] = useState(false);
+
+  const showCartHandler = () => {
+    setCartIsShown(true);
+  };
+
+  const hideCartHandler = () => {
+    setCartIsShown(false);
+  };
+
   const productlist = productsArr.map((prod) => (
     <Card
       key={prod.id}
@@ -62,9 +72,9 @@ function App() {
 
   return (
     <Fragment>
-      <Cart></Cart>
-      <Header/>
-      <Title/>
+      {cartIsShown && <Cart onClose={hideCartHandler}></Cart>}
+      <Header onShowCart={showCartHandler}></Header>
+      <Title />
       <ul className={classes.container}>{productlist}</ul>
       <div
         style={{
