@@ -61,8 +61,8 @@ function App() {
 
   return (
     <div>
-      <Header></Header>
-      <Title></Title>
+      <Header/>
+      <Title/>
       <ul className={classes.container}>{productlist}</ul>
       <div
         style={{
@@ -74,9 +74,8 @@ function App() {
       >
         <Button variant="outline-secondary">See the Cart</Button>
       </div>
-      <Footer></Footer>
+      <Footer />
     </div>
-    
   );
 }
 
