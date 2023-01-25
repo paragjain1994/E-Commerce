@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Title from "./components/Title";
 import Card from "./Cards/Card";
 import classes from "./Cards/Card.module.css";
+import { Button } from "react-bootstrap";
+import Footer from "./components/Footer";
 
 const productsArr = [
   {
@@ -62,7 +64,19 @@ function App() {
       <Header></Header>
       <Title></Title>
       <ul className={classes.container}>{productlist}</ul>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "1%",
+        }}
+      >
+        <Button variant="outline-secondary">See the Cart</Button>
+      </div>
+      <Footer></Footer>
     </div>
+    
   );
 }
 
