@@ -84,7 +84,7 @@ function App() {
           margin: "1%",
         }}
       >
-        <Button variant="outline-secondary">See the Cart</Button>
+        <Button variant="outline-secondary" onClick={showCartHandler}>See the Cart</Button>
       </div>
       <Footer />
     </Fragment>
