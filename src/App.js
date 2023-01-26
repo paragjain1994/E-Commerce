@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import Header from "./components/Header";
 import Title from "./components/Title";
 import Card from "./Cards/Card";
@@ -6,6 +6,7 @@ import classes from "./Cards/Card.module.css";
 import { Button } from "react-bootstrap";
 import Footer from "./components/Footer";
 import Cart from "./components/Cart";
+import CartProvider from "./store/CartProvider";
 
 const productsArr = [
   {
@@ -71,7 +72,7 @@ function App() {
   ));
 
   return (
-    <Fragment>
+    <CartProvider>
       {cartIsShown && <Cart onClose={hideCartHandler}></Cart>}
       <Header onShowCart={showCartHandler}></Header>
       <Title />
@@ -87,7 +88,7 @@ function App() {
         <Button variant="outline-secondary" onClick={showCartHandler}>See the Cart</Button>
       </div>
       <Footer />
-    </Fragment>
+    </CartProvider>
   );
 }
 
