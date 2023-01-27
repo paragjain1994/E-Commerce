@@ -6,7 +6,17 @@ const CartProvider = (props) => {
 
   const addItemToCartHandler=(item)=>{
     console.log(item);
-    updateItems([...items,item]);
+
+    const idx = items.findIndex((i) => i.id === item.id);
+
+    if (idx === -1) {
+      updateItems([...items, item]);
+    } else {
+      let temp = [...items];
+      temp[idx].quantity = Number(temp[idx].quantity) + Number(item.quantity);
+      updateItems(temp);
+    }
+   
    }
 
    const removeItemFromCartHandler=(id)=>{
