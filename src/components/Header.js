@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import classes from "./Header.module.css";
 import HeaderCartButton from "./HeaderCartButton";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 const Header = (props) => {
@@ -9,12 +9,12 @@ const Header = (props) => {
     <Fragment>
       <div className={classes.topnav}>
         <div>
-          <Link  to="/home">Home</Link>
+          <NavLink  to="/home" activeClassName={classes.active}>Home</NavLink>
         </div>
 
         <div className={classes["topnav-right"]}>
-          <Link  to="/store">Store</Link>
-          <Link  to="/about">About Us</Link>
+          <NavLink  to="/store" activeClassName={classes.active}>Store</NavLink>
+          <NavLink  to="/about" activeClassName={classes.active}>About Us</NavLink>
           <HeaderCartButton onClick={props.onShowCart}></HeaderCartButton>
         </div>
       </div>
