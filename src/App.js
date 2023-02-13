@@ -6,6 +6,7 @@ import { Route,Redirect } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
 import Store from "./components/Store";
 import Home from "./pages/Home";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
         </Route>
         <Route path="/about">
           <AboutUs />
+        </Route>
+        <Route path="/contact">
+          <ContactUs />
         </Route>
       </main>
 

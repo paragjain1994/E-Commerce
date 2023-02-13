@@ -15,6 +15,7 @@ const Header = (props) => {
         <div className={classes["topnav-right"]}>
           <NavLink  to="/store" activeClassName={classes.active}>Store</NavLink>
           <NavLink  to="/about" activeClassName={classes.active}>About Us</NavLink>
+          <NavLink  to="/contact" activeClassName={classes.active}>Contact Us</NavLink>
           <HeaderCartButton onClick={props.onShowCart}></HeaderCartButton>
         </div>
       </div>
