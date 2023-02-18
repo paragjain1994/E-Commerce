@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.star-rating {
+  margin-left: 2%;
+  font-style: italic
+}
+
+

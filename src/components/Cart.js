@@ -3,43 +3,7 @@ import Modal from "./Modal";
 import classes from "./Cart.module.css";
 import "./Crt.css";
 import CartContext from "../store/cart-context";
-// const DummyCartItems = [
-//   {
-//     id: "m1",
 
-//     title: "Colors",
-
-//     price: 100,
-
-//     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-
-//     quantity: 2,
-//   },
-
-//   {
-//     id: "m2",
-
-//     title: "Black and white Colors",
-
-//     price: 50,
-
-//     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-
-//     quantity: 3,
-//   },
-
-//   {
-//     id: "m3",
-
-//     title: "Yellow and Black Colors",
-
-//     price: 70,
-
-//     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-
-//     quantity: 1,
-//   },
-// ];
 
 const Cart = (props) => {
   const cartcntx = useContext(CartContext);
@@ -70,7 +34,7 @@ const Cart = (props) => {
             className="cart-del-btn cart-column"
             onClick={removeItemFromCart}
           >
-            x
+            Remove
           </button>
         </li>
       ))}

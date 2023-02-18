@@ -6,14 +6,17 @@ let Title = ()=>{
   const mystyle ={
     textAlign: "center",
     color: "black",
-    fontSize: "4.5rem"
+    fontSize: "4.5rem",
+    lineHeight: "3.2",
+    padding: "0%"
   }
 
   const mystyle2 ={
     textAlign: "center",
     color: "black",
     fontSize: "2.5rem",
-    marginBlockStart: "-15px"
+    lineHeight: "1",
+    padding: "0%"
   }
 
     return(

@@ -5,47 +5,8 @@ import Title from "./Title";
 import Header from "./Header";
 import Cart from "./Cart";
 import { Button } from "react-bootstrap";
-const productsArr = [
-  {
-    id: "m1",
+import productsArr from "./ProductArr";
 
-    title: "Album 1",
-
-    price: 100,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-  },
-
-  {
-    id: "m2",
-
-    title: "Album 2",
-
-    price: 50,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-  },
-
-  {
-    id: "m3",
-
-    title: "Album 3",
-
-    price: 70,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-  },
-
-  {
-    id: "m4",
-
-    title: "Album 4",
-
-    price: 100,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-  },
-];
 const Store = () => {
     const [cartIsShown, setCartIsShown] = useState(false);
 
@@ -64,8 +25,10 @@ const Store = () => {
       title={prod.title}
       imageUrl={prod.imageUrl}
       price={prod.price}
+      avail_stock={prod.avail_stock}
     ></Card>
   ));
+
 
   return (
     <div>
