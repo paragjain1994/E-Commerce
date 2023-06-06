@@ -20,7 +20,7 @@ function ContactUs() {
   async function addContact(contact_details) {
     console.log(contact_details);
     const response = await fetch(
-      "https://e-commerce-fd56d-default-rtdb.firebaseio.com/contacts.json",
+      "https://e-commerce-fd56d-default-rtdb.firebaseio.com//contacts.json",
       {
         method: "POST",
         body: JSON.stringify(contact_details),

@@ -57,7 +57,7 @@ const ProductDetails = (props) => {
 
   return (
     <div>
-      {cartIsShown && <Cart onClose={hideCartHandler}></Cart>}
+     {cartIsShown && <Cart onClose={hideCartHandler}></Cart>}
       <Header onShowCart={showCartHandler}></Header>
       {console.log(param.productID)}
       {/* <HeaderCartButton productID={param.productID}></HeaderCartButton> */}

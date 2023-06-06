@@ -1,4 +1,4 @@
-import React from "react";
+import {useContext} from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CartProvider from "./store/CartProvider";
@@ -8,28 +8,34 @@ import Store from "./components/Store";
 import Home from "./pages/Home";
 import ContactUs from "./pages/ContactUs";
 import ProductDetails from "./pages/ProductDetails";
+import Login from "./pages/Login";
+import AuthContext from "./store/auth-context";
 
 function App() {
+  const loginCtx = useContext(AuthContext);
   return (
     <CartProvider>
-      <Header />
+      <Header /> 
 
       <main>
         <Switch>
         <Route path="/" exact>
-        <Redirect to="/store" />
+          {!loginCtx.isLoggedIn && <Redirect to='/login' />}
         </Route>
         <Route path="/store/:productID">
           <ProductDetails  />
         </Route>
-        <Route path="/store">
+       {loginCtx.isLoggedIn && <Route path="/store">
           <Store />
-        </Route>
+        </Route>}
         <Route path="/home">
           <Home />
         </Route>
         <Route path="/about">
           <AboutUs />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
         <Route path="/contact">
           <ContactUs />
