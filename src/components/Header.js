@@ -21,7 +21,8 @@ const Header = (props) => {
         </div>
 
         <div className={classes["topnav-right"]}>
-          <NavLink  to="/store" activeClassName={classes.active}>Store</NavLink>
+          {!isLoggedIn && <NavLink  to="/login" activeClassName={classes.active}>Store</NavLink>}
+          {isLoggedIn && <NavLink  to="/store" activeClassName={classes.active}>Store</NavLink>}
           <NavLink  to="/about" activeClassName={classes.active}>About Us</NavLink>
           {!isLoggedIn &&<NavLink  to="/login" activeClassName={classes.active}>Login</NavLink>}
           {isLoggedIn && <button onClick={logoutHandler}>Logout</button>}
