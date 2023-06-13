@@ -15,6 +15,7 @@ const Login = () => {
     event.preventDefault();
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
+    let email =enteredEmail.replace('@','').replace('.','');
 
     let url =
       "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAtPE5V4PgE1oV8PXclyPU6LLYZUXB0XG0";
@@ -46,7 +47,8 @@ const Login = () => {
         }
       })
       .then((data) => {
-        loginCtx.login(data.idToken);
+        loginCtx.login(data.idToken, data.email);
+        localStorage.setItem('email', email);
         history.replace("/store");
         console.log(data);
       })

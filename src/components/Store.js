@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Card from "../Cards/Card";
 import classes from "../Cards/Card.module.css";
 import Title from "./Title";
@@ -6,9 +6,40 @@ import Header from "./Header";
 import Cart from "./Cart";
 import { Button } from "react-bootstrap";
 import productsArr from "./ProductArr";
-
+import AuthContext from "../store/auth-context";
+import CartContext from "../store/cart-context";
 const Store = () => {
     const [cartIsShown, setCartIsShown] = useState(false);
+    const authCtx = useContext(AuthContext);
+    const cartcntx = useContext(CartContext);
+
+    console.log(authCtx.email);
+    let email = localStorage.getItem('email');
+    console.log(email);
+
+    fetch(
+      `https://crudcrud.com/api/ec9f8f5a00b943e1b089e05d665d1b66/cartData${email}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        cartcntx.addItem(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+
+   
+
+
+  
 
     const showCartHandler = () => {
       setCartIsShown(true);

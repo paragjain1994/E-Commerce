@@ -12,6 +12,7 @@ const ProductDetails = (props) => {
   const [cartIsShown, setCartIsShown] = useState(false);
   const cartcntx = useContext(CartContext);
 
+
   const addItemToCart = () => {
     console.log(product);
     const quantity = 1;

@@ -27,7 +27,7 @@ const Header = (props) => {
           {!isLoggedIn && <NavLink  to="/login" activeClassName={classes.active}>Login</NavLink>}
           {isLoggedIn && <button onClick={logoutHandler}>Logout</button>}
           <NavLink  to="/contact" activeClassName={classes.active}>Contact Us</NavLink>
-          <HeaderCartButton onClick={props.onShowCart}></HeaderCartButton>
+          {isLoggedIn && <HeaderCartButton onClick={props.onShowCart}></HeaderCartButton>}
         </div>
       </div>
     </Fragment>
