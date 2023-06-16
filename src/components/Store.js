@@ -18,7 +18,7 @@ const Store = () => {
     console.log(email);
 
     fetch(
-      `https://crudcrud.com/api/ec9f8f5a00b943e1b089e05d665d1b66/cartData${email}`,
+      `https://crudcrud.com/api/ac970794e0fb4ddb8507992904a52365/cartData${email}`,
       {
         headers: {
           "Content-Type": "application/json",
