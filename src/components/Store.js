@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext ,useEffect } from "react";
 import Card from "../Cards/Card";
 import classes from "../Cards/Card.module.css";
 import Title from "./Title";
@@ -17,8 +17,10 @@ const Store = () => {
     let email = localStorage.getItem('email');
     console.log(email);
 
+useEffect(()=>{
+  console.log('hey')
     fetch(
-      `https://crudcrud.com/api/ac970794e0fb4ddb8507992904a52365/cartData${email}`,
+      `https://crudcrud.com/api/2dfabfcee84141508074fd639aebab37/cartData${email}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -30,12 +32,13 @@ const Store = () => {
       })
       .then((data) => {
         console.log(data);
-        cartcntx.addItem(data);
+        //cartcntx.addItem(data);
+        cartcntx.items=data;
       })
       .catch((err) => {
         console.log(err.message);
       });
-
+    },[]);
    
 
 

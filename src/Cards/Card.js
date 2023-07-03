@@ -8,7 +8,7 @@ import productsArr from "../components/ProductArr";
   const cartcntx = useContext(CartContext);
   const addItemToCart = () => {
     console.log(props);
-    const quantity = 1;
+    let quantity = 1;
     cartcntx.addItem({ ...props, quantity: quantity });
   };
   const price = `$${props.price.toFixed(2)}`;

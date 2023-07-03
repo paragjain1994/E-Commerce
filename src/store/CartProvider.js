@@ -9,7 +9,7 @@ const CartProvider = (props) => {
 
     console.log(email);
 
-    const apiKey = `https://crudcrud.com/api/01317d8548674fe2abe367393bb2b870/cartData${email}`;
+    const apiKey = `https://crudcrud.com/api/2dfabfcee84141508074fd639aebab37/cartData${email}`;
 
     f();
 
@@ -51,12 +51,16 @@ const CartProvider = (props) => {
     temp.splice(idx,1);
     updateItems(temp);
    }
+
+
   const cartContext = {
     items: items,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
     msg: 'I am accessible anywhere'
   };
+
+  
   return (
     <CartContext.Provider value={cartContext}>
       {props.children}
