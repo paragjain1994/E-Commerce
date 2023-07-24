@@ -6,7 +6,7 @@ import Rating from "../components/Rating";
 import Cart from "../components/Cart";
 import Header from "../components/Header";
 import CartContext from "../store/cart-context";
-
+// import HeaderCartButton from "../components/HeaderCartButton";
 
 const ProductDetails = (props) => {
   const [cartIsShown, setCartIsShown] = useState(false);

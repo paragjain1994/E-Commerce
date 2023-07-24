@@ -8,37 +8,39 @@ import { Button } from "react-bootstrap";
 import productsArr from "./ProductArr";
 import AuthContext from "../store/auth-context";
 import CartContext from "../store/cart-context";
+
 const Store = () => {
     const [cartIsShown, setCartIsShown] = useState(false);
     const authCtx = useContext(AuthContext);
     const cartcntx = useContext(CartContext);
 
-    console.log(authCtx.email);
+    console.log(authCtx);
     let email = localStorage.getItem('email');
     console.log(email);
 
-useEffect(()=>{
-  console.log('hey')
-    fetch(
-      `https://crudcrud.com/api/2dfabfcee84141508074fd639aebab37/cartData${email}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        //cartcntx.addItem(data);
-        cartcntx.items=data;
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-    },[]);
+// useEffect(()=>{
+//   console.log('hey')
+//     fetch(
+//       `https://crudcrud.com/api/861a761109c345db8c2f70c32b24f4eb/cartData${email}`,
+//       {
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       }
+//     )
+//       .then((res) => {
+//         return res.json();
+//       })
+//       .then((data) => {
+//         console.log('GET method called');
+//         console.log(data);
+//         //cartcntx.addItem(data);
+//         cartcntx.items=data;
+//       })
+//       .catch((err) => {
+//         console.log(err.message);
+//       });
+//     },[]);
    
 
 

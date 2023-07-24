@@ -1,4 +1,5 @@
-import React, {useState} from "react"
+import React, {useState,useContext} from "react"
+import CartContext from "./cart-context";
 
 const AuthContext = React.createContext({
     token: '',
@@ -10,6 +11,9 @@ const AuthContext = React.createContext({
 export const AuthContextProvider = (props) => {
     let initialToken = localStorage.getItem('token');
     const [token, setToken] = useState(initialToken);
+    const cartcntx = useContext(CartContext);
+
+    console.log('hello');
 
     const userLoggedIn = !!token;
    
@@ -20,10 +24,12 @@ export const AuthContextProvider = (props) => {
         console.log(token);
         console.log(email);
     }
+
     const logoutHandler = () => {
         setToken(null);
         localStorage.removeItem('token');
-        localStorage.removeItem('email')
+        localStorage.removeItem('email');
+        cartcntx.items=[];
        // console.log(token);
        // console.log(email);
     }
@@ -39,4 +45,4 @@ export const AuthContextProvider = (props) => {
         {props.children}
     </AuthContext.Provider>)
 }
-export default AuthContext
+export default AuthContext;

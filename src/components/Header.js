@@ -3,14 +3,18 @@ import classes from "./Header.module.css";
 import HeaderCartButton from "./HeaderCartButton";
 import { NavLink } from "react-router-dom";
 import AuthContext from "../store/auth-context";
+import CartContext from "../store/cart-context";
 
 
 const Header = (props) => {
   const loginCtx = useContext(AuthContext);
+  // const cartcntx = useContext(CartContext);
   const isLoggedIn = loginCtx.isLoggedIn;
   console.log(isLoggedIn);
 
    const logoutHandler = () =>{
+    // when we logout our items array should be empty 
+    // cartcntx.items = [];
     loginCtx.logout();
   }
   return (

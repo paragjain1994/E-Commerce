@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
 import classes from "./Card.module.css";
 import CartContext from "../store/cart-context";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 import productsArr from "../components/ProductArr";
-  const Card = (props) => {
-  console.log(props);
+
+const Card = (props) => {
+ // console.log(props);
   const cartcntx = useContext(CartContext);
   const addItemToCart = () => {
     console.log(props);
@@ -12,7 +13,7 @@ import productsArr from "../components/ProductArr";
     cartcntx.addItem({ ...props, quantity: quantity });
   };
   const price = `$${props.price.toFixed(2)}`;
-  function addToCart(noOfStock){
+  function addToCart(noOfStock) {
     let res = false;
     if (noOfStock < 1) {
       res = true;
@@ -23,8 +24,8 @@ import productsArr from "../components/ProductArr";
   return (
     <div>
       <h4>{props.title}</h4>
-      
-      <Link to={`/store/${props.id}`}>                               
+
+      <Link to={`/store/${props.id}`}>
         <img
           className={classes.img}
           src={props.imageUrl}
@@ -35,7 +36,11 @@ import productsArr from "../components/ProductArr";
       </Link>
 
       <h3>{price}</h3>
-      <button disabled={addToCart(props.avail_stock)} className={classes.btn} onClick={addItemToCart}>
+      <button
+        disabled={addToCart(props.avail_stock)}
+        className={classes.btn}
+        onClick={addItemToCart}
+      >
         Add to Cart
       </button>
     </div>

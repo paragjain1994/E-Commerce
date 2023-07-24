@@ -1,4 +1,4 @@
-import React, {useState, useContext, useRef } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../store/auth-context";
 import classes from "./Login.module.css";
@@ -15,7 +15,7 @@ const Login = () => {
     event.preventDefault();
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
-    let email =enteredEmail.replace('@','').replace('.','');
+    let email = enteredEmail.replace("@", "").replace(".", "");
 
     let url =
       "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAtPE5V4PgE1oV8PXclyPU6LLYZUXB0XG0";
@@ -37,18 +37,14 @@ const Login = () => {
           return res.json();
         } else {
           return res.json().then((data) => {
-            //   let errorMessage = "Authentication failed";
-            // if(data && data.error && data.error.message){
-            //   errorMessage = data.error.message
-            // }
             alert(data.error.message);
             console.log(data);
           });
         }
       })
       .then((data) => {
-        loginCtx.login(data.idToken, data.email);
-        localStorage.setItem('email', email);
+        loginCtx.login(data.idToken, data.email);         // doubt ?
+        localStorage.setItem("email", email);
         history.replace("/store");
         console.log(data);
       })
@@ -75,7 +71,11 @@ const Login = () => {
           />
         </div>
         <div className={classes.actions}>
-          <button type="button" className={classes.toggle} onClick={submitHandler}>
+          <button
+            type="button"
+            className={classes.toggle}
+            onClick={submitHandler}
+          >
             Login
           </button>
         </div>
